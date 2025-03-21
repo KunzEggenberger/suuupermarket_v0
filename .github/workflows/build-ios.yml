@@ -29,7 +29,7 @@ jobs:
         run: ls -la build/ios/ipa/
 
       - name: Upload IPA Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: ios-ipa
           path: build/ios/ipa/*.ipa
