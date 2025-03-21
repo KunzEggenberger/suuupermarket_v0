@@ -25,11 +25,13 @@ jobs:
       - name: Build IPA with Automatic Signing
         run: flutter build ipa --release --export-options-plist=ios/Runner/ExportOptions_Automatic.plist
 
-      - name: List IPA Directory (Debug Step)
+      # Debug step: List the contents of the IPA output directory
+      - name: List IPA Directory
         run: ls -la build/ios/ipa/
 
+      # Upload the IPA as an artifact
       - name: Upload IPA Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: ios-ipa
           path: build/ios/ipa/*.ipa
