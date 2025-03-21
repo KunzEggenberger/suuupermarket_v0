@@ -15,7 +15,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0'
+          flutter-version: '3.29.2'
           channel: stable
           cache: true
 
@@ -25,11 +25,9 @@ jobs:
       - name: Build IPA with Automatic Signing
         run: flutter build ipa --release --export-options-plist=ios/Runner/ExportOptions_Automatic.plist
 
-      # Debug step: List the contents of the IPA output directory
-      - name: List IPA Directory
+      - name: List IPA Directory (Debug Step)
         run: ls -la build/ios/ipa/
 
-      # Upload the IPA as an artifact
       - name: Upload IPA Artifact
         uses: actions/upload-artifact@v4
         with:
